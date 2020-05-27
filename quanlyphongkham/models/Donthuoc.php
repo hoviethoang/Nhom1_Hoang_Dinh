@@ -128,6 +128,18 @@ public function md_addthuoc($name, $donvitinh, $giacuoi, $gianhap, $cachdung, $s
 	return parent::query($sql);
 }
 
+public function md_thongke($begin, $end){
+	$this->conn= parent::connect();
+	$sql = "SELECT B.id_thuoc, C.name, SUM(B.soluong) as soluong FROM donkham A 
+		inner join thuoc_donkham B on A.id = B.id_donkham 
+		inner join dichvucon C on C.id = B.id_thuoc 
+		WHERE A.ngaykedon BETWEEN '".$begin."' AND '".$end."'  
+		GROUP BY B.id_thuoc, C.name";
+	
+	parent::query($sql);
+	return parent::selectall_cf();
+}
+
 
 
 
