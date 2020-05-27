@@ -105,6 +105,30 @@ public function addthuoc(){
 	header('location:khothuoc');
 }
 
+public function thongke(){
+
+	
+
+	if(isset($_GET['ngaybatdau'])){
+		$date_begin = $_GET['ngaybatdau'];
+	}else{
+	$date_begin = mktime(0, 0, 0, date('m'), date('d')-30, date('Y'));
+	$date_begin = date('Y-m-d', $date_begin);
+	}
+
+	if(isset($_GET['ngayketthuc'])){
+		$date_end = $_GET['ngayketthuc'];
+	}else{
+	$date_end = date('Y-m-d');
+	}
+
+	$data = parent::md_thongke($date_begin, $date_end);
+	
+
+	include("views/layouts/quanly/header.php");
+	include("views/layouts/donthuoc/thongke.php");
+}
+
 }
 
  ?>
