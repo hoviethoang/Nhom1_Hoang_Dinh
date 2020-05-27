@@ -33,10 +33,10 @@
 			<p class="px-3"><small>Menu</small></p>
 			<ul>
 				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-user-injured pr-1 pr-md-2"></i> <a href="../quanly/index">Quản lí bệnh nhân</a></li>
-				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-capsules pr-1 pr-md-2"></i> Kho thuốc</li>
-				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-concierge-bell pr-1 pr-md-2"></i> Quản lí dịch vụ</li>
+				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-capsules pr-1 pr-md-2"></i><a href="../donthuoc/khothuoc"> Kho thuốc</a></li>
+				
 				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-users-cog pr-1 pr-md-2"></i><a href="../donthuoc/themdonthuoc">Đơn khám</a></li>
-				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-signal"></i> Thống kê</li>
+				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-signal"></i><a href="../donthuoc/thongke">Thống kê</a></li>
 				<li class="py-2 pr-2 pl-2 pl-md-4"><i class="fas fa-sign-out-alt pr-1 pr-md-2"></i> Đăng xuất</li>
 
 			</ul>
