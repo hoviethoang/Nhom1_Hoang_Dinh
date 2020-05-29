@@ -73,12 +73,19 @@ public function chuyendoidonmau(){
 
 public function khothuoc(){
 
-	$type = isset($_GET['type']) && ($_GET['type']=='little') ? "little" : "new";
-	
+	if(isset($_GET['type']) && ($_GET['type']=='little'))
+	{
+		$type="little";
+	}else{
+		$type="new";
+	}
 	$count = 6;
 
-	$page = isset($_GET['page']) ? $_GET['page'] : 1;
-		
+	if(isset($_GET['page'])){
+		$page = $_GET['page'];
+	}else{
+		$page = 1;
+	}
 	$data  = parent::md_selectkhothuoc($type,($page-1)*$count,$count);
 	$countall  = parent::md_countallkhothuoc($type);
 	include("views/layouts/quanly/header.php");
@@ -100,20 +107,22 @@ public function addthuoc(){
 
 public function thongke(){
 
-	$danhmuc = isset($_GET['danhmuc']) ? $_GET['danhmuc'] : 1;
 	
-	$date_begin = isset($_GET['ngaybatdau']) ? $_GET['ngaybatdau'] : date('Y-m-d', mktime(0, 0, 0, date('m'), date('d')-30, date('Y')) );
-	$date_end = isset($_GET['ngayketthuc']) ? $_GET['ngayketthuc'] : date('Y-m-d');
 
-	
-	if($danhmuc == 1){
-		$thongke_thuoc = parent::md_thongke($date_begin, $date_end);
+	if(isset($_GET['ngaybatdau'])){
+		$date_begin = $_GET['ngaybatdau'];
 	}else{
-		$thongke_doanhthu= parent::md_thongkedoanhthu($date_begin, $date_end);
+	$date_begin = mktime(0, 0, 0, date('m'), date('d')-30, date('Y'));
+	$date_begin = date('Y-m-d', $date_begin);
 	}
-	
 
-	
+	if(isset($_GET['ngayketthuc'])){
+		$date_end = $_GET['ngayketthuc'];
+	}else{
+	$date_end = date('Y-m-d');
+	}
+
+	$data = parent::md_thongke($date_begin, $date_end);
 	
 
 	include("views/layouts/quanly/header.php");

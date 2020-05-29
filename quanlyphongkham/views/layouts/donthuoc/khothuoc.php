@@ -9,15 +9,8 @@
 		</div>
 		<div class="col-12 text-right">
 			<div class="btn-group btn-group-sm">
-			  
-
-			  <?php
-			  	if($type=='new'){
-			  		echo '<button type="button" class="btn border"  style="background:#DCEAE2"><a href="?type=new" class="text-dark">Mới nhất</a></button> <button type="button" class="btn border"  style="background:#EAFAF1"><a href="?type=little" class="text-dark">Sắp hết</a></button>';
-			  	}else{
-			  		echo '<button type="button" class="btn border"  style="background:#EAFAF1"><a href="?type=new" class="text-dark">Mới nhất</a></button> <button type="button" class="btn border"  style="background:#DCEAE2"><a href="?type=little" class="text-dark">Sắp hết</a></button>';
-			  	}
-			  ?>
+			  <button type="button" class="btn border"  style="background:#EAFAF1"><a href="?type=new">Mới nhất</a></button>
+			  <button type="button" class="btn border"  style="background:#EAFAF1"><a href="?type=little">Sắp hết</a></button>
 			  
 			  
 			</div>
