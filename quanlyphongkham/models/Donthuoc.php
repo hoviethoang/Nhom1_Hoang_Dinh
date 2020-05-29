@@ -140,6 +140,16 @@ public function md_thongke($begin, $end){
 	return parent::selectall_cf();
 }
 
+public function md_thongkedoanhthu($begin, $end)
+{
+	$this->conn = parent::connect();
+	$sql = "SELECT SUBSTRING(ngaykedon,1,7) as name, SUM(giacuoi) as doanhthu From donkham WHERE ngaykedon BETWEEN '".$begin."' AND '".$end."' GROUP BY SUBSTRING(ngaykedon,1,7)";
+	parent::query($sql);
+
+	return parent::selectall_cf();
+
+}
+
 
 
 
