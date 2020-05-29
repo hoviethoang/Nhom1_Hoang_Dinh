@@ -11,7 +11,8 @@ class HomeController extends Home {
 	 	}
 	 	if(isset($_POST['login']))
 	 	{
-	 		$return = parent::login($_POST['name'], $_POST['password']);
+
+	 		$return = parent::login($_POST['name'], md5($_POST['password']));
 
 	 		if($return!=0)
 	 		{
