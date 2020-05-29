@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 18, 2020 lúc 12:20 PM
+-- Thời gian đã tạo: Th5 29, 2020 lúc 07:38 AM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.1.31
 
@@ -21,6 +21,23 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `quanlyphongkham`
 --
+
+DELIMITER $$
+--
+-- Thủ tục
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ABC` ()  BEGIN
+      DECLARE a INT Default 1 ;
+      simple_loop: LOOP         
+         insert into table1 values(a);
+         SET a=a+1;
+         IF a=51 THEN
+            LEAVE simple_loop;
+         END IF;
+   END LOOP simple_loop;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -48,7 +65,6 @@ INSERT INTO `benhnhan` (`id`, `name`, `sex`, `birthday`, `phone`, `cmnd`) VALUES
 (4, 'Gao Đỏ', 1, '2020-03-03', '0765432345', 234565432),
 (5, 'Siêu nhân Mảnh thú', 1, '2020-03-09', '012345654', 8765434),
 (7, 'Cạn Văn', 1, '2020-03-02', '0123456875', 132615),
-(9, 'Hết Văn', 1, '2020-03-02', '01234567875', 1234563),
 (10, 'Nguyễn Văn Lá', 1, '2020-03-01', '0123451956', 12222),
 (12, 'Kiều Thị Cẩm Thơ', 2, '1212-07-06', '0316497777', 23456765),
 (16, 'Tỏng Tăng Tôn Nử', 2, '1996-03-04', '0629456126', 2147483647);
@@ -103,10 +119,16 @@ INSERT INTO `dichvucon` (`id`, `id_dichvu`, `name`, `donvitinh`, `giacuoi`, `uud
 (3, 2, 'Phẩu thuật', '', 500000, '', 0, '', 0),
 (4, 2, 'Thẩm mỷ', '', 500000, '', 0, '', 0),
 (5, 2, 'Khúc xạ', '', 500000, '', 0, '', 0),
-(6, 3, 'Nước muối', 'chai', 12000, '', 5000, 'Uống luôn', 100),
-(7, 3, 'Panadol', 'vỉ', 13000, '', 6000, 'Nuốt luôn', 6),
-(8, 4, 'Kính đen', 'chiếc', 100000, '', 20000, 'Đeo lên mắt', 123),
-(9, 4, 'Kính áp tròng', 'chiếc', 500000, '', 100000, 'Đeo lên mắt', 12);
+(6, 3, 'Nước muối', 'chai', 12000, '', 5000, 'Uống luôn', 97),
+(7, 3, 'Panadol', 'vỉ', 13000, '', 6000, 'Nuốt luôn', 26),
+(8, 4, 'Kính đen', 'chiếc', 100000, '', 20000, 'Đeo lên mắt', 122),
+(9, 4, 'Kính áp tròng', 'chiếc', 500000, '', 100000, 'Đeo lên mắt', 12),
+(11, 3, 'Alaxan', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 17),
+(12, 3, 'Decolgen', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 13),
+(13, 3, 'Ultracet', 'viên', 18000, '', 15000, 'bỏ dô miệng nuốt', 3),
+(14, 3, 'Hapacol Codein', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 123),
+(15, 3, 'Nefopam', 'vỉ', 18000, '', 17000, 'bỏ dô miệng nuốt', 117),
+(16, 3, 'Flunarizine', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 8);
 
 -- --------------------------------------------------------
 
@@ -136,12 +158,17 @@ CREATE TABLE `donkham` (
 --
 
 INSERT INTO `donkham` (`id`, `name`, `ghichu`, `taikham`, `id_benhnhan`, `id_nhanvien`, `ngaykedon`, `uudaitongdon`, `uudaidichvu`, `giatruocuudai`, `giacuoi`, `donmau`, `id_dichvucon`, `giadichvu`) VALUES
-(138, 'viêm phổi', 'viêm phổi', 0, 16, 1, '2020-05-17 06:43:36', 55, 50, 1160000, 409500, 1, 3, 250000),
+(138, 'viêm phổi', 'viêm phổi', 0, 16, 1, '2020-04-29 06:43:36', 55, 50, 1160000, 409500, 1, 3, 250000),
 (139, 'Viêm phổi siêu cấp', 'Viêm phổi siêu cấp', 1, 9, 1, '2020-05-17 06:44:30', 0, 50, 1168000, 918000, 1, 5, 250000),
 (140, 'Viêm phổi siêu cấp', 'ghjkl', 1, 16, 1, '2020-05-18 07:06:25', 0, 50, 1233000, 983000, 0, 3, 250000),
 (141, 'm', '', 0, 16, 1, '2020-05-18 07:06:50', 0, 50, 1160000, 910000, 0, 3, 250000),
 (142, 'Đau bụng', 'bị Đau bụng đó', 0, 16, 1, '2020-05-18 07:46:41', 10, 50, 525000, 247500, 1, 5, 250000),
-(143, 'Tiêu chảy', '', 0, 10, 1, '2020-05-18 08:02:40', 14, 50, 1800000, 1333000, 1, 5, 250000);
+(143, 'Tiêu chảy', '', 0, 10, 1, '2020-05-18 08:02:40', 14, 50, 1800000, 1333000, 1, 5, 250000),
+(144, '23456', 'ư3ert', 0, 16, 1, '2020-05-22 10:03:06', 2, 50, 512000, 256760, 0, 3, 250000),
+(145, 'wsdrfg', 'ắerf', 0, 16, 1, '2020-05-22 10:11:35', 3, 50, 512000, 254140, 0, 3, 250000),
+(146, 'đau bụng', '', 0, 7, 1, '2020-05-25 09:41:17', 17, 50, 664000, 343620, 0, 4, 250000),
+(147, 'tiêu chảy siêu cấp', '', 0, 1, 1, '2020-05-27 09:37:16', 0, 50, 1818000, 1568000, 1, 5, 250000),
+(148, 'ti', '', 0, 7, 1, '2020-05-28 09:48:20', 0, 50, 1920000, 1670000, 0, 3, 250000);
 
 -- --------------------------------------------------------
 
@@ -164,7 +191,7 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`id`, `name`, `password`, `fullname`, `quyen`, `sdt`, `status`) VALUES
-(1, 'hoang', 'hoang', 'Hồ Viết Hoàng', 1, '0359461686', 1);
+(1, 'hoang', 'f82e62d7c3ea69cc12b5cdb8d621dab6', 'Hồ Viết Hoàng', 1, '0359461686', 1);
 
 -- --------------------------------------------------------
 
@@ -198,7 +225,17 @@ INSERT INTO `thuoc_donkham` (`id`, `id_donkham`, `id_thuoc`, `soluong`, `dongia`
 (233, 141, 9, 1, 500000),
 (234, 142, 7, 1, 13000),
 (235, 142, 6, 1, 12000),
-(236, 143, 7, 100, 13000);
+(236, 143, 7, 100, 13000),
+(237, 144, 6, 1, 12000),
+(238, 145, 6, 1, 12000),
+(239, 146, 7, 4, 13000),
+(240, 146, 6, 1, 12000),
+(241, 146, 8, 1, 100000),
+(242, 147, 7, 100, 13000),
+(243, 147, 15, 1, 18000),
+(244, 148, 7, 100, 13000),
+(245, 148, 15, 6, 18000),
+(246, 148, 6, 1, 12000);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -260,13 +297,13 @@ ALTER TABLE `dichvu`
 -- AUTO_INCREMENT cho bảng `dichvucon`
 --
 ALTER TABLE `dichvucon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `donkham`
 --
 ALTER TABLE `donkham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
@@ -278,7 +315,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `thuoc_donkham`
 --
 ALTER TABLE `thuoc_donkham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
