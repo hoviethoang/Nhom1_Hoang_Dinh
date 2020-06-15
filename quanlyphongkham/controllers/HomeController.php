@@ -1,4 +1,5 @@
-<?php 
+<?php  
+nửa tháng chưa có gì mới!
 require("models/Home.php");
 class HomeController extends Home {
 	public function index()
