@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 29, 2020 lúc 07:38 AM
+-- Thời gian đã tạo: Th6 20, 2020 lúc 03:25 AM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.1.31
 
@@ -120,14 +120,14 @@ INSERT INTO `dichvucon` (`id`, `id_dichvu`, `name`, `donvitinh`, `giacuoi`, `uud
 (4, 2, 'Thẩm mỷ', '', 500000, '', 0, '', 0),
 (5, 2, 'Khúc xạ', '', 500000, '', 0, '', 0),
 (6, 3, 'Nước muối', 'chai', 12000, '', 5000, 'Uống luôn', 97),
-(7, 3, 'Panadol', 'vỉ', 13000, '', 6000, 'Nuốt luôn', 26),
+(7, 3, 'Panadol', 'vỉ', 13000, '', 6000, 'Nuốt luôn', 4),
 (8, 4, 'Kính đen', 'chiếc', 100000, '', 20000, 'Đeo lên mắt', 122),
 (9, 4, 'Kính áp tròng', 'chiếc', 500000, '', 100000, 'Đeo lên mắt', 12),
 (11, 3, 'Alaxan', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 17),
 (12, 3, 'Decolgen', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 13),
 (13, 3, 'Ultracet', 'viên', 18000, '', 15000, 'bỏ dô miệng nuốt', 3),
 (14, 3, 'Hapacol Codein', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 123),
-(15, 3, 'Nefopam', 'vỉ', 18000, '', 17000, 'bỏ dô miệng nuốt', 117),
+(15, 3, 'Nefopam', 'vỉ', 18000, '', 17000, 'bỏ dô miệng nuốt', 112),
 (16, 3, 'Flunarizine', 'vỉ', 18000, '', 15000, 'bỏ dô miệng nuốt', 8);
 
 -- --------------------------------------------------------
@@ -168,7 +168,8 @@ INSERT INTO `donkham` (`id`, `name`, `ghichu`, `taikham`, `id_benhnhan`, `id_nha
 (145, 'wsdrfg', 'ắerf', 0, 16, 1, '2020-05-22 10:11:35', 3, 50, 512000, 254140, 0, 3, 250000),
 (146, 'đau bụng', '', 0, 7, 1, '2020-05-25 09:41:17', 17, 50, 664000, 343620, 0, 4, 250000),
 (147, 'tiêu chảy siêu cấp', '', 0, 1, 1, '2020-05-27 09:37:16', 0, 50, 1818000, 1568000, 1, 5, 250000),
-(148, 'ti', '', 0, 7, 1, '2020-05-28 09:48:20', 0, 50, 1920000, 1670000, 0, 3, 250000);
+(148, 'ti', '', 0, 7, 1, '2020-05-28 09:48:20', 0, 50, 1920000, 1670000, 0, 3, 250000),
+(149, 'tiêu chảy 1', 'qứedrftgy', 0, 1, 1, '2020-06-18 10:13:03', 0, 50, 1890000, 1640000, 1, 3, 250000);
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,9 @@ INSERT INTO `thuoc_donkham` (`id`, `id_donkham`, `id_thuoc`, `soluong`, `dongia`
 (243, 147, 15, 1, 18000),
 (244, 148, 7, 100, 13000),
 (245, 148, 15, 6, 18000),
-(246, 148, 6, 1, 12000);
+(246, 148, 6, 1, 12000),
+(247, 149, 7, 100, 13000),
+(248, 149, 15, 5, 18000);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -303,7 +306,7 @@ ALTER TABLE `dichvucon`
 -- AUTO_INCREMENT cho bảng `donkham`
 --
 ALTER TABLE `donkham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
@@ -315,7 +318,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `thuoc_donkham`
 --
 ALTER TABLE `thuoc_donkham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
