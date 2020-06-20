@@ -19,6 +19,10 @@ else
    $('.chonthuoc').on('click',function(){
     $id = $(this).attr('id');
     $id = $id.substr(6);
+    if($('#columthuoc_'+$id).length){
+      alert('Thuốc này đã được thêm vào trước đó');
+      exit();
+    }
    
     $('#listdonthuoc').append('<div id="columthuoc_'+$id+'" class="col-12 mt-1 pb-1 border-bottom"><div class="row"><div class="col-6"><input type="hidden" value="'+$id+'" name="thuoc[]"> '+$('#tenthuoc_'+$id).html()+ '</div><div class="col-6 text-left"><input type="number" style="width:60px" class="btn btn-light border" value="1" name="count['+$id+']"> '+$('#donvitinh_'+$id).html()+ '</div></div></div>');
      $('.khungtimthuoc').hide();
