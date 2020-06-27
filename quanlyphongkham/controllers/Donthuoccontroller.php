@@ -34,6 +34,7 @@ public function kqnhaptenthuoc(){
 	}else
 	{
 		$kq = parent::md_kqnhaptenthuoc($_POST['name']);
+		
 		include("views/layouts/donthuoc/kqnhaptenthuoc.php");
 	}
 }

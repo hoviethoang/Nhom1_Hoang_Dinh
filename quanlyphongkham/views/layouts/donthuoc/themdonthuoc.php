@@ -86,7 +86,7 @@
 			</div>
 			<p class="mt-2">
 				<button class="btn btn-success">Tạo đơn thuốc</button>
-				<a class="btn btn-light border">Xem trước</a>
+				
 
 			</p>
 		</div>
